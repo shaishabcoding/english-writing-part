@@ -5,13 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/global.css">
   <script type="module">
     import { _ } from '/utility.js';
-    fetch(`/paragraph/${location.hash.slice(1)}.json`).then(r => r.json()).then(({ title, data }) => {
-      _(`<h1 align="center">${title}</hr>`);
-      _(`<hr>`);
-      _(data);
-    })
+
+    location.hash ?
+      fetch(`/paragraph/${location.hash.slice(1)}.json`).then(r => r.json()).then(({ title, data }) => {
+        _(`<h1 class="boujee-text">${title}</hr>`);
+        _(`<hr>`);
+        _(data);
+      }) :
+      location.replace("/err.html")
   </script>
   <title>Paragraph</title>
 </head>

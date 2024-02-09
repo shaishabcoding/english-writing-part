@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL9LRyEN8cPPxKtnCwanMQawf6WczWcB_-Ig&usqp=CAU);
+  padding: 10px;
+}
+
+a {
+  background: linear-gradient(#fc5c7d, #6a82fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 14pt;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #777;
+}
+
+.boujee-text {
+  --bg-size: 400%;
+  --color-one: hsl(15 90% 55%);
+  --color-two: hsl(40 95% 55%);
+  background: linear-gradient(90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .boujee-text {
+    animation: move-bg 8s linear infinite;
+  }
+
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+}
+
+h1{
+  margin: 15px 0;
+  text-align: center;
+}
+
+.error_img{
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+}
