@@ -9,13 +9,20 @@
   <script type="module">
     import { _ } from '/utility.js';
 
-    location.hash ?
-      fetch(`/paragraph/${location.hash.slice(1)}.json`).then(r => r.json()).then(({ title, data }) => {
+    fetch(`/paragraph/${location.hash.slice(1)}.json`)
+      .then(r =>
+        r.text()
+      )
+      .then((d) => {
+        if (d.toLowerCase().includes("error 404")) {
+          location.replace("/err.html");
+          return;
+        }
+        const { title, data } = JSON.parse(d);
         _(`<h1 class="boujee-text">${title}</hr>`);
         _(`<hr>`);
         _(data);
-      }) :
-      location.replace("/err.html")
+      });
   </script>
   <title>Paragraph</title>
 </head>
