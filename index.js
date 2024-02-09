@@ -1,3 +1,6 @@
+import {write} from '/utility.js';
 import paragraphs from '/paragraphs/paragraph.js';
 
-document.body.innerHTML = paragraphs[0].data;
+const data = [paragraphs];
+
+write(data);
