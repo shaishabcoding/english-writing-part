@@ -7,22 +7,23 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/global.css">
   <script type="module">
-    import { _ } from '/utility.js';
-
-    fetch(`/paragraph/${location.hash.slice(1)}.json`)
-      .then(r =>
-        r.text()
-      )
-      .then((d) => {
-        if (d.toLowerCase().includes("error 404")) {
-          location.replace("/err.html");
-          return;
-        }
-        const { title, data } = JSON.parse(d);
+    import { _, _url } from '/utility.js';
+    import paragraph from '/paragraph/data.js';
+    let isPass = false;
+    paragraph.data.map(d => {
+      if (_url(d) === location.hash.slice(1))
+        isPass = true;
+    })
+    if (isPass)
+      fetch(`/paragraph/${location.hash.slice(1)}.json`)
+      .then(r => r.json())
+      .then(({ title, data }) => {
         _(`<h1 class="boujee-text">${title}</hr>`);
         _(`<hr>`);
         _(data);
       });
+    else
+      location.replace("/err.html");
   </script>
   <title>Paragraph</title>
 </head>
