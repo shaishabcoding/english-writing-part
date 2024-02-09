@@ -6,16 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script type="module">
-    import { _ } from '../utility.js';
-
-    console.log()
-    fetch(location.hash.slice(1)).then(r => r.json()).then(({title,data}) => {
+    import { _ } from '/utility.js';
+    fetch(`/paragraph/${location.hash.slice(1)}.json`).then(r => r.json()).then(({ title, data }) => {
       _(`<h1 align="center">${title}</hr>`);
-      _(`<hr>`)
-      _(data)
+      _(`<hr>`);
+      _(data);
     })
   </script>
-  <title>Hsc writing suggestions</title>
+  <title>Paragraph</title>
 </head>
 
 <body></body>

@@ -1,6 +1,11 @@
-import {write} from '/utility.js';
-import paragraphs from '/paragraphs/paragraph.js';
+import { _,_url } from '/utility.js';
+import paragraph from '/paragraph/data.js';
 
-const data = [paragraphs];
+const datas = [paragraph];
 
-write(data);
+for (let { title, data} of datas) {
+  _(`<h1>${title}</h1>`);
+  data.map((el, i) => {
+    _(`<a href="/${_url(title)}/#${_url(el)}">${i + 1}. ${el}</p>`)
+  })
+}
