@@ -1,7 +1,8 @@
 import { _,_url } from '/utility.js';
 import paragraph from '/paragraph/data.js';
+import application from '/application/data.js';
 
-const datas = [paragraph];
+const datas = [paragraph, application];
 
 for (let { title, data} of datas) {
   _(`<h1 class="boujee-text">${title}</h1>\n`);

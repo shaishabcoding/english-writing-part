@@ -1,11 +1,10 @@
-const
-  _ = (data) => {
-    document.body.innerHTML += data;
-  },
-  _url = (title) => {
-    return title.toLowerCase().replace(/ /g, '_');
-  }
+const _ = (data) => {
+  document.body.innerHTML += data;
+}
+const _url = (title) => title.toLowerCase().replace(/ /g, '_');
+const getDate = () => new Date().toLocaleString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
 
 
 
-export { _url, _ };
+
+export { _url, _, getDate };
