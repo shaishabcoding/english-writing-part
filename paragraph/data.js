@@ -1,4 +1,4 @@
 export default {
   title: "Paragraph",
-  data: ["Climate Change","Internet","Facebook", "Adolescence","Price Hike"]
+  data: ["Climate Change","Internet","Facebook", "Adolescence","Price Hike","A Winter Morning"]
 };
